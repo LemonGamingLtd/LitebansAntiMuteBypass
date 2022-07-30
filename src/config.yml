@@ -1,0 +1,6 @@
+block-signs: true
+block-anvil-rename: true
+block-book-editing: true
+block-sign-message: "&cYou can't use signs when muted!"
+block-renaming-message: "&cYou can't rename items when muted!"
+block-book-editing-message: "&cYou can't edit books when muted!"
