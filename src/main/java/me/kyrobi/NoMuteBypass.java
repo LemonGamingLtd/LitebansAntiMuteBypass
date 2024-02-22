@@ -3,6 +3,7 @@ package me.kyrobi;
 import litebans.api.Database;
 import litebans.api.Entry;
 import litebans.api.Events;
+import me.nahu.scheduler.wrapper.runnable.WrappedRunnable;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -13,7 +14,6 @@ import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerEditBookEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -82,7 +82,7 @@ public class NoMuteBypass implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent e) {
         UUID uuid = e.getPlayer().getUniqueId();
-        new BukkitRunnable() {
+        new WrappedRunnable() {
             @Override
             public void run() {
                 boolean isMuted = Database.get().isPlayerMuted(uuid, null);

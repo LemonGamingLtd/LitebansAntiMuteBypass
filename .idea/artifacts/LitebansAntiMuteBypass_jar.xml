@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="LitebansAntiMuteBypass:jar">
-    <output-path>$PROJECT_DIR$/../../..</output-path>
-    <root id="archive" name="LitebansAntiMuteBypass.jar">
-      <element id="module-output" name="LitebansAntiMuteBypass" />
-    </root>
-  </artifact>
-</component>

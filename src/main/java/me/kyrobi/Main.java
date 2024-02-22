@@ -1,8 +1,9 @@
 package me.kyrobi;
 
+import me.nahu.scheduler.wrapper.FoliaWrappedJavaPlugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin {
+public class Main extends FoliaWrappedJavaPlugin {
 
     private Boolean disableSign = true;
     private Boolean disableRename = true;
