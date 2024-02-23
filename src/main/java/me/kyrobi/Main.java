@@ -1,7 +1,6 @@
 package me.kyrobi;
 
 import me.nahu.scheduler.wrapper.FoliaWrappedJavaPlugin;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends FoliaWrappedJavaPlugin {
 
@@ -34,15 +33,15 @@ public class Main extends FoliaWrappedJavaPlugin {
         NoMuteBypass.mutedPlayersUUID.clear();
     }
 
-    public Boolean allowSign(){
+    public Boolean disableSign(){
         return disableSign;
     }
 
-    public Boolean allowRename(){
+    public Boolean disableRename(){
         return disableRename;
     }
 
-    public Boolean allowBook(){
+    public Boolean disableBook(){
         return disableBook;
     }
 

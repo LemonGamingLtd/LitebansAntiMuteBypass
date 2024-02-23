@@ -19,7 +19,7 @@ allprojects {
     }
 
     dependencies {
-        compileOnly("io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
+        compileOnly("io.papermc.paper:paper-api:1.20.2-R0.1-SNAPSHOT")
         compileOnly("com.gitlab.ruany:LiteBansAPI:0.5.0")
         implementation("com.github.NahuLD:folia-scheduler-wrapper:v0.0.2")
     }

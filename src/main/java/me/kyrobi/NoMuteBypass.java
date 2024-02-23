@@ -9,6 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerEditBookEvent;
@@ -106,7 +107,7 @@ public class NoMuteBypass implements Listener {
     public void onPlayerPlace(BlockPlaceEvent e) {
         UUID uuid = e.getPlayer().getUniqueId();
 
-        if(mutedPlayersUUID.contains(uuid.toString()) && plugin.allowSign()){
+        if(mutedPlayersUUID.contains(uuid.toString()) && plugin.disableSign()){
             if(bannedBlocks.contains(e.getBlockPlaced().getType())){
                 e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.blockSignMessage()));
                 e.setCancelled(true);
@@ -119,7 +120,7 @@ public class NoMuteBypass implements Listener {
     public void onInventoryClickEvent(InventoryClickEvent e){
         if(e.getInventory().getType() == InventoryType.ANVIL){
             if(e.getSlotType() == InventoryType.SlotType.RESULT){
-                if(mutedPlayersUUID.contains(e.getWhoClicked().getUniqueId().toString()) && plugin.allowRename()){
+                if(mutedPlayersUUID.contains(e.getWhoClicked().getUniqueId().toString()) && plugin.disableRename()){
                     e.getWhoClicked().sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.blockRenameMessage()));
                     e.setCancelled(true);
                 }
@@ -130,8 +131,19 @@ public class NoMuteBypass implements Listener {
     //Block books to be edited
     @EventHandler
     public void onBookEdit(PlayerEditBookEvent e){
-        if(mutedPlayersUUID.contains(e.getPlayer().getUniqueId().toString()) && plugin.allowBook()){
+        if(mutedPlayersUUID.contains(e.getPlayer().getUniqueId().toString()) && plugin.disableBook()){
             e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.blockBookMessage()));
+            e.setCancelled(true);
+        }
+    }
+
+    //Block signs from being edited
+    @EventHandler
+    public void onSignEditEvent(SignChangeEvent e) {
+        UUID uuid = e.getPlayer().getUniqueId();
+
+        if(mutedPlayersUUID.contains(uuid.toString()) && plugin.disableSign()){
+            e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.blockSignMessage()));
             e.setCancelled(true);
         }
     }
