@@ -12,6 +12,7 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerEditBookEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
@@ -24,6 +25,7 @@ public class NoMuteBypass implements Listener {
 
     private Main plugin;
 
+    public static Set<String> blacklistedCommands = Set.of("partychat", "pchat", "pc", "p");
     public static Set<Material> bannedBlocks = new HashSet<Material>();
     public static Set<String> mutedPlayersUUID = new HashSet<String>(); //Hashset has O(1) lookup time compared to arrayList
 
@@ -144,6 +146,22 @@ public class NoMuteBypass implements Listener {
 
         if(mutedPlayersUUID.contains(uuid.toString()) && plugin.disableSign()){
             e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.blockSignMessage()));
+            e.setCancelled(true);
+        }
+    }
+
+    //Block certain commands
+    @EventHandler
+    public void onPlayerCommandPreprocessEvent(PlayerCommandPreprocessEvent e) {
+        String[] args = e.getMessage().split(" ");
+        if (args.length == 0) {
+            return;
+        }
+
+        UUID uuid = e.getPlayer().getUniqueId();
+        String command = args[0].toLowerCase();
+        if(blacklistedCommands.contains(command) && mutedPlayersUUID.contains(uuid.toString()) && plugin.disableCommands()){
+            e.getPlayer().sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.blockCommandsMessage()));
             e.setCancelled(true);
         }
     }
