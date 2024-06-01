@@ -36,30 +36,53 @@ public class NoMuteBypass implements Listener {
         //Adds all the signs that can't be placed
         bannedBlocks.add(Material.OAK_SIGN);
         bannedBlocks.add(Material.OAK_WALL_SIGN);
+        bannedBlocks.add(Material.OAK_HANGING_SIGN);
+        bannedBlocks.add(Material.OAK_WALL_HANGING_SIGN);
 
         bannedBlocks.add(Material.SPRUCE_SIGN);
         bannedBlocks.add(Material.SPRUCE_WALL_SIGN);
+        bannedBlocks.add(Material.SPRUCE_HANGING_SIGN);
+        bannedBlocks.add(Material.SPRUCE_WALL_HANGING_SIGN);
 
         bannedBlocks.add(Material.BIRCH_SIGN);
         bannedBlocks.add(Material.BIRCH_WALL_SIGN);
+        bannedBlocks.add(Material.BIRCH_HANGING_SIGN);
+        bannedBlocks.add(Material.BIRCH_WALL_HANGING_SIGN);
 
         bannedBlocks.add(Material.JUNGLE_SIGN);
         bannedBlocks.add(Material.JUNGLE_WALL_SIGN);
+        bannedBlocks.add(Material.JUNGLE_HANGING_SIGN);
+        bannedBlocks.add(Material.JUNGLE_WALL_HANGING_SIGN);
 
         bannedBlocks.add(Material.ACACIA_SIGN);
         bannedBlocks.add(Material.ACACIA_WALL_SIGN);
+        bannedBlocks.add(Material.ACACIA_HANGING_SIGN);
+        bannedBlocks.add(Material.ACACIA_WALL_HANGING_SIGN);
 
         bannedBlocks.add(Material.DARK_OAK_SIGN);
         bannedBlocks.add(Material.DARK_OAK_WALL_SIGN);
+        bannedBlocks.add(Material.DARK_OAK_HANGING_SIGN);
+        bannedBlocks.add(Material.DARK_OAK_WALL_HANGING_SIGN);
 
         bannedBlocks.add(Material.MANGROVE_SIGN);
         bannedBlocks.add(Material.MANGROVE_WALL_SIGN);
+        bannedBlocks.add(Material.MANGROVE_HANGING_SIGN);
+        bannedBlocks.add(Material.MANGROVE_WALL_HANGING_SIGN);
 
         bannedBlocks.add(Material.CRIMSON_SIGN);
         bannedBlocks.add(Material.CRIMSON_WALL_SIGN);
+        bannedBlocks.add(Material.CRIMSON_HANGING_SIGN);
+        bannedBlocks.add(Material.CRIMSON_WALL_HANGING_SIGN);
 
         bannedBlocks.add(Material.WARPED_SIGN);
         bannedBlocks.add(Material.WARPED_WALL_SIGN);
+        bannedBlocks.add(Material.WARPED_HANGING_SIGN);
+        bannedBlocks.add(Material.WARPED_WALL_HANGING_SIGN);
+
+        bannedBlocks.add(Material.CHERRY_SIGN);
+        bannedBlocks.add(Material.CHERRY_WALL_SIGN);
+        bannedBlocks.add(Material.CHERRY_HANGING_SIGN);
+        bannedBlocks.add(Material.CHERRY_WALL_HANGING_SIGN);
 
         //Register the event that we will listen to when a player is muted
         Events.get().register(new Events.Listener() {
