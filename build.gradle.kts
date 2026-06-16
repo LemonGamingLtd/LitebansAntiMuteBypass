@@ -20,7 +20,7 @@ allprojects {
 
     dependencies {
         compileOnly("io.papermc.paper:paper-api:1.20.2-R0.1-SNAPSHOT")
-        compileOnly("com.gitlab.ruany:LiteBansAPI:0.5.0")
+        compileOnly("com.gitlab.ruany:LiteBansAPI:0.6.1")
         implementation("com.github.NahuLD:folia-scheduler-wrapper:v0.0.2")
     }
 
@@ -28,7 +28,7 @@ allprojects {
         mavenCentral()
 
         maven {
-            url = uri("https://papermc.io/repo/repository/maven-public/")
+            url = uri("https://repo.papermc.io/repository/maven-public/")
         }
 
         maven {

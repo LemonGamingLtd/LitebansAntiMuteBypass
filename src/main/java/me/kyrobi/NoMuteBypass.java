@@ -87,18 +87,15 @@ public class NoMuteBypass implements Listener {
         //Register the event that we will listen to when a player is muted
         Events.get().register(new Events.Listener() {
             public void entryAdded(Entry entry) {
-
                 if (entry.getType().equals("mute")){
                     mutedPlayersUUID.add(entry.getUuid());
                 }
             }
 
             public void entryRemoved(Entry entry) {
-
                 if (entry.getType().equals("mute")){
                     mutedPlayersUUID.remove(entry.getUuid());
                 }
-
             }
         });
     }
